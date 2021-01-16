@@ -1,0 +1,60 @@
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+import time
+import action
+try:
+    driver = webdriver.Chrome(executable_path='C:\\New folder\\chromedriver_win32\\chromedriver.exe')
+    # Optional argument not specified will search path.
+    driver.get('https://www.youtube.com/')
+    driver.find_element_by_name('search_query').send_keys('bada pachtaoge')
+    action = ActionChains(driver)
+    ##action.key_down(Keys.CONTROL).send_keys('A').key_up(Keys.CONTROL).perform()
+    ##action.key_down(Keys.CONTROL).send_keys('C').key_up(Keys.CONTROL).perform()
+    ##action.send_keys(Keys.ARROW_RIGHT)
+    ##action.key_down(Keys.CONTROL).send_keys('V').key_up(Keys.CONTROL).perform()
+    ##time.sleep(5)
+    ##action.key_down(Keys.CONTROL).send_keys('A').key_up(Keys.CONTROL).perform()
+    ##action.send_keys(Keys.BACK_SPACE).perform()
+    print("playing")
+    driver.find_element_by_xpath('//*[@id="search-icon-legacy"]').click()
+    driver.find_element_by_xpath('//*[@id="video-title"]/yt-formatted-string').click()
+    driver.maximize_window()
+    ##driver.find_element_by_xpath('//*[@id="guide-icon"]').click()
+    ##driver.refresh()
+    ##driver.execute_script("alert('player will exit in 15 seconds')")
+    ## time.sleep(15)
+    ##driver.execute_script('window.scrollTo(0,document.body.scrollHeight);')
+    ##driver.execute_script("alert('Alert via selenium')")
+    #driver.find_element_by_name("search_query").send_keys("hello")
+    #driver.save_screenshot('C:\\New folder\\xyz.png')
+    time.sleep(30)
+
+finally:
+           print("video stopped finally  playing")
+           driver.quit()
+-----------------------------------------------------
+import time
+from selenium import webdriver
+driver = webdriver.Chrome('C:\\New folder\\chromedriver_win32\\chromedriver.exe')  # Optional argument, if not specified will search path.
+driver.get('https://www.youtube.com/');
+#time.sleep(5) # Let the user actually see something!
+#search_box = driver.find_element_by_id('search_)
+#search_box.send_keys('telangana')
+#search_box.submit()
+#driver.find_element_by_name("q").send_keys("ok done")
+#driver.find_element_by_link_text('Gmail').click()
+driver.maximize_window()
+#driver.find_element_by_name("search_query").send_keys("diyyo diyyo")
+box=driver.find_elements_by_xpath('//*[@id="search-icon-legacy"]/yt-icon')
+
+print('clicked')
+driver.find_element_by_link_text('Sign in')
+search_box = driver.find_element_by_css_selector("#identifierId")
+search_box.send_keys('sandeepbikkumalla1@gmail.com')
+search_box.submit()
+
+#search_box.submit()
+time.sleep(5) # Let the user actually see something!
+#driver.quit()
+
