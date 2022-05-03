@@ -1,0 +1,29 @@
+from subprocess import Popen, PIPE, STDOUT
+for x in range(5):
+    p = Popen("putty.exe gfxsv@10.99.113.71 -pw intel123", stdout=PIPE, stdin=PIPE, stderr=STDOUT)  
+
+
+
+  
+grep_stdout = p.communicate(input=b'ssh xx.xx.x.20\n')[0]
+print(grep_stdout.decode())
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+from pywinauto.application import Application
+import time
+
+app = Application ().Start (cmd_line=u'putty -ssh user_name@10.70.15.175')
+putty = app.PuTTY
+putty.Wait ('ready')
+time.sleep (1)
+putty.TypeKeys ("password")
+putty.TypeKeys ("{ENTER}")
+time.sleep (1)
+putty.TypeKeys ("ls")
+putty.TypeKeys ("{ENTER}")
+
+
+echo "gfxsv ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/gfxsv
